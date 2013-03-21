@@ -18,6 +18,7 @@ public class Example12Date {
         //Period of time
         Duration duration = Duration.ofMinutes(2);
         System.out.println(duration);
+
         System.out.println(pointInTime.plus(duration));
 
         System.out.println(LocalDate.of(2012,Month.JUNE,10));
@@ -28,23 +29,26 @@ public class Example12Date {
         System.out.println(LocalTime.now(ZoneOffset.UTC));
 
         //Government rules
+        System.out.println("rules:");
         System.out.println(ZoneRules.of(ZoneOffset.UTC));
-        System.out.println(ZoneRules.of(ZoneOffset.UTC).getDaylightSavings(Instant.now()));
         System.out.println(ZoneRules.of(ZoneOffset.UTC).getTransitionRules());
-        System.out.println("n" + ZoneRules.of(ZoneOffset.UTC).nextTransition(Instant.now()));
+        System.out.println(":" + ZoneRules.of(ZoneOffset.UTC).nextTransition(Instant.now()));
         //ZoneId
 
         //with... to return new Immutable object
+        System.out.println("with:");
         LocalDate now = LocalDate.now();
-        now.withYear(2016);
-        now.withDayOfMonth(10);
+        System.out.println(now.withYear(2016));
+        System.out.println(now.withDayOfMonth(10));
 
         //leapYear
+        System.out.println("leapYear:");
         System.out.println(now.isLeapYear());
 
         //adjusters
-        now.with(Adjusters.firstDayOfMonth());
-        now.with(Adjusters.dayOfWeekInMonth(1,DayOfWeek.TUESDAY));
+        System.out.println("adjusters");
+        System.out.println(now.with(Adjusters.firstDayOfMonth()));
+        System.out.println(now.with(Adjusters.dayOfWeekInMonth(1,DayOfWeek.TUESDAY)));
 
         //TimeZone
         TimeZone zone = TimeZone.getTimeZone("Europe/London");
